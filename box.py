@@ -1,34 +1,11 @@
 #!/usr/bin/env python
-from mpd import MPDClient
 #from readtest import *
 import re
 from CardList import CardList
 from Reader import Reader
 import sys
-
-
-def connectMPD():
-	try:
-		client = MPDClient()               # create client object
-		client.timeout = 200               # network timeout in seconds (floats allowed), default: None
-		client.idletimeout = None  
-		print "Connecting..."
-		client.connect("localhost", 6600) 
-		print "Connected!"
-		return client
-	except:
-		print 'Could not connect to MPD server'
-
-def play(client, plist):
-	try:
-		client.stop()
-		client.clear()
-		client.add(plist)
-		if re.search('playlist',plist):
-			client.shuffle()
-		client.play()
-	except:
-		print 'Could not play playlist %s' % plist 
+import subprocess
+import shlex
 
 reader = Reader()
 cardList = CardList()
@@ -42,13 +19,9 @@ while True:
 		plist = cardList.getPlaylist(card)
 		print 'Playlist', plist
 		if plist != '':
-			client = connectMPD()
-			if plist=='pause':
-				client.pause()
-			else:
-				play(client, plist)
-			client.close()
+                   subprocess.check_call( ["./haplaylist.sh %s" % plist], shell=True)
 	except KeyboardInterrupt:
 		sys.exit(0)
 	except:
 		pass
+

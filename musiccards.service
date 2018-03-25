@@ -1,0 +1,16 @@
+[Unit]
+Description=MusicCards
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/music-cards
+ExecStart=/usr/bin/python -u /home/pi/music-cards/box.py
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
