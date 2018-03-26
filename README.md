@@ -1,3 +1,5 @@
+Click the image below to see a video of it being used
+
 [![RFID Jukebox with Google Home](https://img.youtube.com/vi/AvCseOQidSw/0.jpg)](https://www.youtube.com/watch?v=AvCseOQidSw)
 
 Requires:
