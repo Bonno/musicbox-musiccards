@@ -1,3 +1,5 @@
+[![RFID Jukebox with Google Home](https://img.youtube.com/vi/AvCseOQidSw/0.jpg)](https://www.youtube.com/watch?v=AvCseOQidSw)
+
 Requires:
 - python evdev. To install:
 
@@ -12,11 +14,10 @@ pip install python-mpd2
 First run 'python config.py' to select the reader from the inputs.
 
 
+
+
 EDIT:
 
-
-Link to video of project in use:
-https://youtu.be/AvCseOQidSw
 
 Place the files under homeassistant_files in the config directory of your Homeassistant machine.
 
