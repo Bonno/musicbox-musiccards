@@ -7,9 +7,8 @@ cardList = CardList()
 while True:
         print 'Place the card in the reader'
         card = reader.readCard()
-        plist=raw_input('Specify Spotify URI, q to quit')
+        plist=raw_input('Specify Google Playlist Name-NoSpaces, q to quit')
         if plist=="q":
                 break
 	cardList.addPlaylist(card, plist)
 print "Exiting"
-
