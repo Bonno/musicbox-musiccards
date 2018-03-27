@@ -15,14 +15,41 @@ dpkg -i python-evdev_0.4.1-1_armhf.deb
 ```bash
 pip install python-mpd2
 ```
-First run `python config.py` to select the reader from the inputs.
 
+## Steps to Run
 
-## Setup
+1. Run `python config.py` to select the reader from the inputs
+2. Run `python add_card.py` to scan cards and enter your Google Play Music Playlist Name
+3. Run `python box.py` to start the application and verify that it is reading your cards and csv list properly
+
+## Install Service to AutoStart
+
+- Change directory to music-cards/
+```bash
+cd music-cards/
+```
+- Copy the musiccards.service file to systemd
+```bash
+sudo cp musiccards.service /etc/systemd/system/musiccards.service
+```
+- Reload the Daemon
+```bash
+sudo systemctl daemon-reload
+```
+- Start the musiccards.service
+```bash
+sudo systemctl start musiccards.service
+```
+- You can check that the service is running at any time by typing
+```bash
+sudo systemctl status musiccards.service
+```
+
+## HomeAssistant Setup for Google Music
 
 1. Place the files under homeassistant_files in the config directory of your [Homeassistant](https://www.home-assistant.io/) machine.
 2. You will need to create custom_components/switch directory in your config directory and place [`gmusic.py`](https://github.com/mf-social/Home-Assistant/blob/master/custom_components/switch/gmusic.py) in there.
-3. Follow [this forum post](https://community.home-assistant.io/t/google-music-in-ha/10976) to find your device id, and set up the component.
+3. Follow [this forum post](https://community.home-assistant.io/t/google-music-in-ha/10976) to install gmusicapi, find your device id, and set up the component.
 
 
 ## Links to items needed:
