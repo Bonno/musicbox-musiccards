@@ -23,8 +23,7 @@ pip install python-mpd2
 - [125Khz Cards](https://www.amazon.com/gp/product/B01MQY5Y7U/ref=ox_sc_act_title_1?smid=A1GYMVIZIMSYWM&psc=1)
 - [RFID Card Inkjet Tray to print in your printer (Note this is the model needed for my Canon MX922 Printer)](https://www.amazon.com/gp/product/B00P25H0BA/ref=oh_aui_detailpage_o03_s01?ie=UTF8&psc=1)
 
-Please note that Raspberry Pi Zero is insufficient to running both Home Assistant and Music Cards at the same time. I recommend to using a Raspberry Pi 3 to run both software on one machine.
-
+Please note that Raspberry Pi Zero is insufficient to run both the Home Assistant and Music Cards concurrently. I recommend you use a Raspberry Pi 3 if you intend to run both at the same time.
 
 ## Steps to Configure and/or Run once if you dont want Music Cards to AutoStart
 
