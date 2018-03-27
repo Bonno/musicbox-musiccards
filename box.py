@@ -5,7 +5,8 @@ from CardList import CardList
 from Reader import Reader
 import sys
 import subprocess
-import shlex
+import os
+import time
 
 reader = Reader()
 cardList = CardList()
@@ -13,15 +14,17 @@ cardList = CardList()
 print 'Ready: place a card on top of the reader'
 
 while True:
+        card = reader.readCard()
 	try:
-		card = reader.readCard()
 		print 'Read card', card
 		plist = cardList.getPlaylist(card)
 		print 'Playlist', plist
 		if plist != '':
                    subprocess.check_call( ["./haplaylist.sh %s" % plist], shell=True)
-	except KeyboardInterrupt:
-		sys.exit(0)
-	except:
-		pass
+                range(10000)       # some payload code
+                time.sleep(0.2)    # sane sleep time of 0.1 seconds
+        except OSError as e:
+            print "Execution failed:" 
+            range(10000)       # some payload code
+            time.sleep(0.2)    # sane sleep time of 0.1 seconds
 
