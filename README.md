@@ -8,9 +8,7 @@ Click the image below to see a video of it being used
 ### software:
 - python evdev. To install:
 ```bash
-wget http://dl.piwall.co.uk/python-evdev_0.4.1-1_armhf.deb
-
-dpkg -i python-evdev_0.4.1-1_armhf.deb
+pip install evdev
 ```
 - python mpd-2. To install
 ```bash
@@ -49,7 +47,7 @@ sudo systemctl daemon-reload
 ```bash
 sudo systemctl start musiccards.service
 ```
-- Check if musiccards.service is running 
+- Check if musiccards.service is running
 ```bash
 sudo systemctl status musiccards.service
 ```
