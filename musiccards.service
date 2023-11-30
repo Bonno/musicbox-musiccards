@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/music-cards
-ExecStart=/usr/bin/python -u /home/pi/music-cards/box.py
+ExecStart=/home/pi/music-cards/box.sh
 Restart=always
 RestartSec=5
 
