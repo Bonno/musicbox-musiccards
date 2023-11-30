@@ -1,19 +1,18 @@
 # Music Cards
 
-Click the image below to see a video of it being used
-
-[![RFID Jukebox with Google Home](https://img.youtube.com/vi/AvCseOQidSw/0.jpg)](https://www.youtube.com/watch?v=AvCseOQidSw)
-
 ## Requires
 ### software:
-- python evdev. To install:
+Use python venv:
 ```bash
-pip install evdev
+python -m venv ./venv
+source venv/bin/activate
 ```
-- python mpd-2. To install
+
+- python evdev and python mpd-2. To install:
 ```bash
-pip install python-mpd2
+pip install evdev python-mpd2
 ```
+
 ### hardware:
 - [Raspberry Pi Zero (Don't forget micro sd card and power supply)](http://www.microcenter.com/product/486575/Zero_W)
 - [USB OTG Hub](https://www.amazon.com/gp/product/B01HYJLZH6/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1)
@@ -35,9 +34,9 @@ Please note that Raspberry Pi Zero is insufficient to run both the Home Assistan
 ```bash
 cd music-cards/
 ```
-- Copy the musiccards.service file to systemd
+- Link the musiccards.service file to systemd
 ```bash
-sudo cp musiccards.service /etc/systemd/system/musiccards.service
+sudo ln musiccards.service /etc/systemd/system/musiccards.service
 ```
 - Reload the Daemon
 ```bash
@@ -51,9 +50,3 @@ sudo systemctl start musiccards.service
 ```bash
 sudo systemctl status musiccards.service
 ```
-
-## HomeAssistant Setup for Google Music
-
-1. Place the files under homeassistant_files in the config directory of your [Homeassistant](https://www.home-assistant.io/) machine.
-2. You will need to create custom_components/switch directory in your config directory and place [`gmusic.py`](https://github.com/mf-social/Home-Assistant/blob/master/custom_components/switch/gmusic.py) in there.
-3. Follow [this forum post](https://community.home-assistant.io/t/google-music-in-ha/10976) to install gmusicapi, find your device id, and set up the component.
